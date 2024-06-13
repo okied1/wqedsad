@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://lpi7qa6t5yis"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_e1f6w"]
+[ext_resource type="PackedScene" uid="uid://bs0j53sxty4f2" path="res://BG/bg.tscn" id="2_fmv6w"]
+[ext_resource type="AudioStream" uid="uid://c76abm3vqew8s" path="res://Player/leval/sound/SFX/click-21156.mp3" id="3_cg6en"]
+[ext_resource type="AudioStream" uid="uid://do43xovpbrnxe" path="res://Player/leval/sound/music/medieval-fantasy-142837.mp3" id="3_h58mm"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_e1f6w")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 381.0
+offset_top = 295.0
+offset_right = 726.0
+offset_bottom = 356.0
+theme_override_font_sizes/font_size = 30
+text = "Play
+"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 381.0
+offset_top = 370.0
+offset_right = 726.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 30
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 377.0
+offset_top = 452.0
+offset_right = 722.0
+offset_bottom = 513.0
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+
+[node name="BG" parent="." instance=ExtResource("2_fmv6w")]
+
+[node name="Buttons" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cg6en")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h58mm")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
